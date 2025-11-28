@@ -26,7 +26,7 @@ const buttonVariants = cva(
         teal: "bg-health-teal text-primary-foreground hover:bg-health-teal/90 shadow-sm hover:shadow-md",
         indigo: "bg-health-indigo text-primary-foreground hover:bg-health-indigo/90 shadow-sm hover:shadow-md",
         coral: "bg-health-coral text-primary-foreground hover:bg-health-coral/90 shadow-sm hover:shadow-md",
-        amber: "bg-health-amber text-primary-foreground hover:bg-health-amber/90 shadow-sm hover:shadow-md",
+        amber: "bg-health-amber text-foreground hover:bg-health-amber/90 shadow-sm hover:shadow-md",
         success: "bg-health-success text-primary-foreground hover:bg-health-success/90 shadow-sm hover:shadow-md",
         "outline-teal": "border-2 border-health-teal text-health-teal bg-transparent hover:bg-health-teal-light",
         "outline-indigo": "border-2 border-health-indigo text-health-indigo bg-transparent hover:bg-health-indigo-light",
