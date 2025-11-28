@@ -18,7 +18,6 @@ import {
   BookOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
 
 type MoodLevel = "great" | "good" | "okay" | "low" | "struggling";
 
@@ -71,31 +70,13 @@ export default function MentalHealth() {
   const [selectedMood, setSelectedMood] = useState<MoodLevel | null>(null);
   const [moodNote, setMoodNote] = useState("");
   const [showCrisisHelp, setShowCrisisHelp] = useState(false);
-  const { toast } = useToast();
 
   const handleMoodSubmit = () => {
     if (!selectedMood) return;
+    // In a real app, this would save to the database
     console.log("Mood logged:", { mood: selectedMood, note: moodNote });
-    toast({
-      title: "Mood logged successfully!",
-      description: "Your response has been recorded anonymously.",
-    });
     setSelectedMood(null);
     setMoodNote("");
-  };
-
-  const handleResourceClick = (title: string) => {
-    toast({
-      title: title,
-      description: "This feature is coming soon. Stay tuned!",
-    });
-  };
-
-  const handleStartChat = () => {
-    toast({
-      title: "Anonymous Chat",
-      description: "Connecting to a counselor... This feature is coming soon.",
-    });
   };
 
   return (
@@ -266,7 +247,7 @@ export default function MentalHealth() {
                 Our counselors are available 24/7 to listen and support you. 
                 Your identity remains completely private.
               </p>
-              <Button variant="amber" className="w-full" onClick={handleStartChat}>
+              <Button variant="amber" className="w-full">
                 <MessageCircle className="h-4 w-4 mr-2" />
                 Start Anonymous Chat
               </Button>
@@ -301,7 +282,6 @@ export default function MentalHealth() {
                 {resources.map((resource) => (
                   <button
                     key={resource.title}
-                    onClick={() => handleResourceClick(resource.title)}
                     className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors text-left"
                   >
                     <div className={cn("h-10 w-10 rounded-lg flex items-center justify-center", resource.color)}>
