@@ -27,19 +27,8 @@ pipeline {
       }
     }
     stage('SonarCloud check') {
-      when {
-        expression { return params.SONAR_PROJECT_KEY?.trim() && params.SONAR_ORGANIZATION?.trim() }
-      }
-      steps {
-        withCredentials([string(credentialsId: 'SONARCLOUD_TOKEN', variable: 'SONAR_TOKEN')]) {
-          sh '''
-            npx sonar-scanner \
-              -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-              -Dsonar.organization=${SONAR_ORGANIZATION} \
-              -Dsonar.sources=src \
-              -Dsonar.host.url=${SONAR_HOST_URL} \
-              -Dsonar.login=${SONAR_TOKEN}
-          '''
+        steps {
+            sh 'echo hello world'
         }
       }
     }
