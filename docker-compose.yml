@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     image: health-connect-all:latest
     ports:
-      - '8080:80'
+      - '80:80'
     restart: unless-stopped
     environment:
       - NODE_ENV=production
