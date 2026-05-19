@@ -27,9 +27,8 @@ pipeline {
       }
     }
     stage('SonarCloud check') {
-        steps {
-            sh 'echo hello world'
-        }
+      steps {
+        sh 'echo hello world'
       }
     }
     stage('Trivy FS check') {
